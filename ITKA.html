@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>  
+		<title>ITK</title>	
+		    <link rel="stylesheet" href="https://openlayers.org/en/v4.1.1/css/ol.css" type="text/css">
+    <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
+    <script src="https://openlayers.org/en/v4.1.1/build/ol.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>   
+<script src="https://epsg.io/21781-1753.js"></script>
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="css/ol.css" media="all" type="text/css" rel="stylesheet">
+		<link href="css/main.css" media="all" type="text/css" rel="stylesheet">
+		<script src="js/ol-debug.js" defer="defer"></script>
+		<script src="js/main.js" defer="defer"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.4.3/proj4.js"></script>
+	</head>
+	<body>
+		<h1> Najpoznatiji vinski gradovi Srbije </h1>
+		<span id = "klikni" class="label label-default">Za dobijanje koordinata u izabranoj projekciji klikni na mapu</span>
+		<div id="map" class="map"></div>
+		<div id="popup" class="ol-popup">
+			<a href="#" id="popup-closer" class="ol-popup-closer"></a>
+		<div id="popup-content"></div>
+		</div>
+		<nav id="layers">Izabrati podlogu:	
+			<ul>
+				<li><input type="radio" name = "radio" value="osm" checked> OpenStreetMap </li>
+				<li><input type="radio" name = "radio" value="bing"> Bing Maps</li>
+			
+			</ul>
+		</nav>
+
+		<div id="image-layers">
+			<label>Raster</label>
+			<div class="row">
+					<div class="col-sm-12">
+						<input id="l-rgbv"  type="checkbox" >Srbija</input>
+						<button id="l-rgbv-b" type="button">Download</button>
+					</div>
+			</div>
+			<label>Vector</label>
+			<div class="row">
+				<div class="col-sm-12">
+						<input id="l-int" type="checkbox" >Reke </input>
+						<button id="l-int-b" type="button">Download</button>
+					</div>
+			</div>
+
+			<div class="row">
+					<div class="col-sm-12">
+						<input id="l-lok"  type="checkbox" >Putevi </input>
+						<button id="l-lok-b" type="button">Download</button>
+					</div>
+			</div>
+			<div class="row">
+					<div class="col-sm-12">
+						<input id="l-elk"  type="checkbox" >Najpoznatiji vinski gradovi srbije</input>
+					</div>
+			</div>
+			<div class="row">
+					<div class="col-sm-12">
+						<input id="l-elk-wfs"  type="checkbox" >Najpoznatiji vinski gradovi srbije WFS</input>
+						<button id="l-elk-wfs-b" type="button">Download</button>
+					</div>
+			</div>
+		</div>
+
+		<div id="projections">
+		<label>Izabrati projekciju</label>
+			<div class="col-sm-12">
+					<input type="radio" name="projekcija" value="lamb">Lambertova
+			</div>
+			<div class="col-sm-12">
+				  <input type="radio" name="projekcija" value="merc" >Mercator
+			</div>
+			<div class="col-sm-12">
+				  <input type="radio" name="projekcija" value="dks" checked>DKS
+			</div>
+			<div class="col-sm-12">
+				  <input type="radio" name="projekcija" value="utm" checked>UTM
+			</div>
+		</div>
+
+	</body>
+</html>
